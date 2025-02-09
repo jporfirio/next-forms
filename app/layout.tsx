@@ -8,6 +8,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import "./globals.css";
+import { CSPostHogProvider } from "@/providers/posthog";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,15 +36,17 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <nav className="mx-4 flex justify-end sticky top-4 min-h-7">
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-          </nav>
-          {children}
+          <CSPostHogProvider>
+            <nav className="mx-4 flex justify-end sticky top-4 min-h-7">
+              <SignedOut>
+                <SignInButton />
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+            </nav>
+            {children}
+          </CSPostHogProvider>
         </body>
       </html>
     </ClerkProvider>
