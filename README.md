@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NextJS Form Builder Capstone Project
 
-## Getting Started
+## Motivation
 
-First, run the development server:
+I built a couple NextJS apps now, and I would like to build a big project, that does a lot of things, and highlights skills.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+I also want this project to be something beyond trivial and not just a follow along tutorial.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The objective is simple: learn, solidify and display my NextJS skills.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## What I'm building
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This will be a form and dashboard application.
 
-## Learn More
+- The idea is simple, you build a form that is fully customizable.
+- You send that form link to someone you want to respond.
+- The dashboard is updated displaying their response.
 
-To learn more about Next.js, take a look at the following resources:
+Other things that will be included
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- full authentication flow (using clerk)
+  - only you will be able to alter your forms
+  - only you should be able to view the response to your forms
+- require responder authentication
+  - you can build a form that requires the responder to authenticate themselves
+  - you can also build an annonymous form that doesn't require authentication
+- analytics (using posthog)
+  - try to add as many custom events as seem reasonable
+- good UX (though not amazing, I'm no expert)
+  - optimistic updates
+  - streaming
+  - loading and error states
+- pdf generation
+  - it should be possible to generate a pdf report from the dashboard
+  - it should also be possible to generate a pdf for the responses to a form
+- the form
+  - there should be a draft model which is updated anytime the user changes the form
+  - there should be a published model which is the one the responder sees
+  - questions and responses should be drag-n-droppable, including their nested trees, to any siblings or parents, not to its children
+  - you should be able to duplicate questions, which includes all its children
+  - if possible, I'll look into nesting forms, so you can have a part of your form which is in itself another form (how drafts and publishing will work I have no idea yet)
+- email functionality
+  - there should be e-mail settings, a user could receive an e-mail anytime a form receives a response
+  - or a user could receive an e-mail daily about form responses, or weekly
+  - a user could also receive a periodic report on their email, in pdf form
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Routes I'll try to add
 
-## Deploy on Vercel
+- homepage, fully cached, includes the description of the product and a sign in button
+- sign in page, maybe also sign up on the same route?
+- dashboard, requires authentication, stream the dashboards so the user doesn't wait
+- forms, list the forms and possibly link to the responses
+- forms/[id], where the user edits a form they created
+  - try to make this as server-authoritative as possible (avoid client state)
+  - try to make it good for the user (optmistic UI)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## What are forms?
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Forms are questions at the root level, which have a type and responses.
+
+Type of questions could be: pick one, pick multiple, reply in text, upload file
+
+Questions could be required or skippable.
+
+Each response could in turn open up multiple questions.
+
+A response could have points associated and could also instantly qualify or unqualify a respondant.
+
+A question, or response, could also include a file for download, or a link, possibly to explain its context.
+
+## Tasks
+
+- [ ] add the env.js configuration from t3stack
+- [ ] add at least a few routes
+- [ ] add posthog to the project
+- [ ] add upload thing to the project
+- [ ] add authentication and protect routes
+- [ ] create the form response route, with public and private versions
+- [ ] add the create form route, which will then be broken into multiple tasks
+- [ ] add an e-mail service that allows sending pdf
+- [ ] add a cron service
+- [ ] add a background job to generate the pdfs and save them to upload thing
