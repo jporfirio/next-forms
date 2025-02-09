@@ -6,15 +6,15 @@
 - [x] add upload thing credentials and library to the project
 - [x] add clerk credentials and library to the project
 - [x] add posthog credentials and library to the project
-- [ ] add singlestore
+- [x] add singlestore
 - [ ] add at least a few routes
-- [ ] add upload thing to the project
 - [ ] add authentication and protect routes
 - [ ] create the form response route, with public and private versions
 - [ ] add the create form route, which will then be broken into multiple tasks
 - [ ] add an e-mail service that allows sending pdf
 - [ ] add a cron service
 - [ ] add a background job to generate the pdfs and save them to upload thing
+- [ ] add drizzle eslint config to avoid updates/delete without where clause
 
 ## Motivation
 

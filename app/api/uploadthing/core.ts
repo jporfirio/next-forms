@@ -1,3 +1,5 @@
+import { db } from "@/server/db";
+import { files_table } from "@/server/db/schema";
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
 
@@ -35,6 +37,16 @@ export const ourFileRouter = {
       console.log("Upload complete for userId:", metadata.userId);
 
       console.log("file url", file.url);
+
+      await db
+        .insert(files_table)
+        .values({
+          name: file.name,
+          size: file.size,
+          uploadedId: file.key,
+          url: file.url,
+        })
+        .$returningId();
 
       // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
       return { uploadedBy: metadata.userId };
