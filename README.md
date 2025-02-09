@@ -1,5 +1,20 @@
 # NextJS Form Builder Capstone Project
 
+## Tasks
+
+- [x] add the env.js configuration from t3stack
+- [x] add upload thing credentials and library to the project
+- [ ] add clerk credentials and library to the project
+- [ ] add posthog credentials and library to the project
+- [ ] add at least a few routes
+- [ ] add upload thing to the project
+- [ ] add authentication and protect routes
+- [ ] create the form response route, with public and private versions
+- [ ] add the create form route, which will then be broken into multiple tasks
+- [ ] add an e-mail service that allows sending pdf
+- [ ] add a cron service
+- [ ] add a background job to generate the pdfs and save them to upload thing
+
 ## Motivation
 
 I built a couple NextJS apps now, and I would like to build a big project, that does a lot of things, and highlights skills.
@@ -67,16 +82,3 @@ Each response could in turn open up multiple questions.
 A response could have points associated and could also instantly qualify or unqualify a respondant.
 
 A question, or response, could also include a file for download, or a link, possibly to explain its context.
-
-## Tasks
-
-- [ ] add the env.js configuration from t3stack
-- [ ] add at least a few routes
-- [ ] add posthog to the project
-- [ ] add upload thing to the project
-- [ ] add authentication and protect routes
-- [ ] create the form response route, with public and private versions
-- [ ] add the create form route, which will then be broken into multiple tasks
-- [ ] add an e-mail service that allows sending pdf
-- [ ] add a cron service
-- [ ] add a background job to generate the pdfs and save them to upload thing
