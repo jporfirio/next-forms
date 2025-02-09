@@ -4,7 +4,7 @@
 
 - [x] add the env.js configuration from t3stack
 - [x] add upload thing credentials and library to the project
-- [ ] add clerk credentials and library to the project
+- [x] add clerk credentials and library to the project
 - [ ] add posthog credentials and library to the project
 - [ ] add at least a few routes
 - [ ] add upload thing to the project

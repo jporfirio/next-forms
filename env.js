@@ -7,12 +7,17 @@ export const env = createEnv({
       .enum(["development", "test", "production"])
       .default("development"),
     UPLOADTHING_TOKEN: z.string(),
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string(),
+    CLERK_SECRET_KEY: z.string(),
   },
   client: {},
 
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
     UPLOADTHING_TOKEN: process.env.UPLOADTHING_TOKEN,
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:
+      process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
+    CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
   },
 
   skipValidation: !!process.env.SKIP_ENV_VALIDATION,
